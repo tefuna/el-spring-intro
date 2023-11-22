@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.tfn.udemy.springintro.repository.mapper.TodoMapper">
+
+  <select id="selectAll" resultType="Todo">
+    SELECT
+      id,
+      user_id,
+      todo_type_id,
+      title,
+      detail,
+      deadline
+    FROM
+      todo
+  </select>
+
+
+  <insert id="insert" parameterType="Todo" useGeneratedKeys="true" keyProperty="id">
+    insert into todo (
+      user_id,
+      todo_type_id,
+      title,
+      detail,
+      deadline
+    ) values (
+      #{user_id},
+      #{todo_type_id},
+      #{title},
+      #{detail}
+      #{deadline}
+    )
+  </insert>
+
+</mapper>

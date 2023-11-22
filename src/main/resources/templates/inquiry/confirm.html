@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${title}">insert title here</title>
+</head>
+
+<body>
+  <h1 th:text="${title}">title</h1>
+  <div th:object="${inquiryForm}">
+    <p th:text="*{name}">
+    <p th:text="*{email}">
+    <p th:text="*{contents}">
+    <form method="post" action="#" th:action="@{/inquiry/}">
+      <input id="name" name="name" type="hidden" th:value="*{name}">
+      <input id="email" name="email" type="hidden" th:value="*{email}">
+      <input id="contents" name="contents" type="hidden" th:value="*{contents}">
+      <input type="submit" value="back">
+    </form>
+    <form method="post" action="#" th:action="@{/inquiry/complete}">
+      <input id="name" name="name" type="hidden" th:value="*{name}">
+      <input id="email" name="email" type="hidden" th:value="*{email}">
+      <input id="contents" name="contents" type="hidden" th:value="*{contents}">
+      <input type="submit" value="complete">
+    </form>
+  </div>
+</body>
+
+</html>

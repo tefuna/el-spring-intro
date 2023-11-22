@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.tfn.udemy.springintro.repository.mapper.InquiryMapper">
+
+  <insert id="insert">
+    insert into Inquiry (
+      name,
+      email,
+      contents,
+      created
+    ) values (
+      #{name},
+      #{email},
+      #{contents},
+      #{created}
+    )
+  </insert>
+
+  <select id="selectAll" resultType="Inquiry">
+    SELECT
+      id,
+      name,
+      email,
+      contents,
+      created
+    FROM
+      inquiry
+  </select>
+
+</mapper>

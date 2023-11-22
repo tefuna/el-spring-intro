@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>todo index</title>
+</head>
+
+<body>
+  <h1>todo index</h1>
+  <h2 th:text="${complete}">complete message</h1>
+    <table>
+    <tr>
+      <th>id</th>
+      <th>user_id</th>
+      <th>todo_type</th>
+      <th>title</th>
+      <th>detail</th>
+      <th>aaa</th>
+    </tr>
+    <tr th:each="todo : ${todos}">
+      <td th:text="${todo.id}">id</td>
+      <td th:text="${todo.userId}">user_id</td>
+      <td th:text="${todo.todoType}">todo_type</td>
+      <td th:text="${todo.title}">title</td>
+      <td th:text="${todo.detail}">detail</td>
+      <td th:text="${todo.deadline}">deadline</td>
+    </tr>
+  </table>
+
+
+  <form method="post" action="#" th:action="@{/todo/register}" th:object="${todoForm}">
+    <div>
+      <label>タスクタイプ</label>
+      <div th:each="todoType : ${todoTypeRadio}">
+        <input type="radio" th:id="'todoTypeId_' + ${todoType.todoTypeId}" name="todoType" th:value="${todoType.todoTypeId}">
+        <label th:text="${todoType.typeName}" th:for="'todoTypeId_' + ${todoType.todoTypeId}">todoType Label</label>
+      </div>
+    </div>
+    <div>
+      <label for="title">やること</label>
+      <input type="text" id="title" name="title" th:value="*{title}">
+      <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+    </div>
+    <div>
+      <label for="detail">詳細</label>
+      <input type="text" id="detail" name="detail" th:value="*{detail}">
+      <div th:if="${#fields.hasErrors('detail')}" th:errors="*{detail}"></div>
+    </div>
+    <div>
+      <label for="deadline">期限</label>
+      <input type="datetime-local" id="deadline" name="deadline" th:value="*{deadline}">
+      <div th:if="${#fields.hasErrors('deadline')}" th:errors="*{deadline}"></div>
+    </div>
+    <input type="submit" value="to confirm">
+  </form>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

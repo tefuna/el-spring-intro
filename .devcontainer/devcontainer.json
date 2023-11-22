@@ -20,11 +20,13 @@
 				"eamodio.gitlens",
 				"vscjava.vscode-gradle",
 				"naco-siren.gradle-language",
-				"vmware.vscode-boot-dev-pack"
+				"vmware.vscode-boot-dev-pack",
+				"yzhang.markdown-all-in-one",
+				"DavidAnson.vscode-markdownlint",
+				"Gruntfuggly.todo-tree",
+				"mosapride.zenkaku"
 			],
 			"settings": {
-				"java.compile.nullAnalysis.mode": "automatic",
-				"java.configuration.updateBuildConfiguration": "automatic",
 				"java.format.settings.url": "/workspaces/${localWorkspaceFolderBasename}/ext/config/tefuna-formatter.xml",
 				"java.checkstyle.configuration": "/workspaces/${localWorkspaceFolderBasename}/ext/config/tefuna-checkstyle.xml",
 				"java.inlayHints.parameterNames.enabled": "none",
